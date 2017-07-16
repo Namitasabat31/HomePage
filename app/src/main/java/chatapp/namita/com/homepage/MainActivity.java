@@ -1,8 +1,6 @@
 package chatapp.namita.com.homepage;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.support.design.widget.TabLayout;
 
 import android.support.v4.content.ContextCompat;
@@ -11,22 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
 
-
-    private ImageButton btnNext, btnFinish;
     private ViewPager intro_images;
     private LinearLayout pager_indicator;
     private int dotsCount;
     private ImageView[] dots;
     private ViewPagerAdapter mAdapter;
-Context context = this;
     private int[] mImageResources = {
             R.drawable.album1,
             R.drawable.album2,
@@ -117,9 +110,9 @@ Context context = this;
 
     private void setupViewPager(ViewPager viewPager) {
         TabPagerAdapter adapter = new TabPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new TabFragment1(), "ONE");
-        adapter.addFrag(new TabFragment1(), "TWO");
-        adapter.addFrag(new TabFragment1(), "THREE");
+        adapter.addFrag(new TabFragment1(), "Images");
+        adapter.addFrag(new TabFragment1(), "Videos");
+        adapter.addFrag(new TabFragment1(), "Milestone");
         viewPager.setAdapter(adapter);
     }
     public void setReference() {

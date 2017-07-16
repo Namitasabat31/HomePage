@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 public class TabFragment1 extends Fragment {
-    private List<ImagesData> persons;
+    private List<ImagesData> imageslist;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_fragment_1, container, false);
@@ -28,25 +28,25 @@ public class TabFragment1 extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(llm);
         initializeData();
-        RVAdapter adapter = new RVAdapter(persons);
+        RVAdapter adapter = new RVAdapter(imageslist);
         rv.setAdapter(adapter);
         return view;
     }
     private void initializeData(){
-        persons = new ArrayList<>();
-        persons.add(new ImagesData("Emma Wilson", "23 years old", R.drawable.album1));
-        persons.add(new ImagesData("Lavery Maiss", "25 years old", R.drawable.album2));
-        persons.add(new ImagesData("Lillie Watts", "35 years old", R.drawable.album3));
-        persons.add(new ImagesData("Emma Wilson", "23 years old", R.drawable.album4));
-        persons.add(new ImagesData("Lavery Maiss", "25 years old", R.drawable.album5));
-        persons.add(new ImagesData("Lillie Watts", "35 years old", R.drawable.album6));
+        imageslist = new ArrayList<>();
+        imageslist.add(new ImagesData("Emma Wilson", "2 hours ago", R.drawable.album1));
+        imageslist.add(new ImagesData("Lavery Maiss", "5 hours ago", R.drawable.album2));
+        imageslist.add(new ImagesData("Lillie Watts", "3 hours ago", R.drawable.album3));
+        imageslist.add(new ImagesData("Emma Wilson", "8 hours ago", R.drawable.album4));
+        imageslist.add(new ImagesData("Lavery Maiss", "25 hours ago", R.drawable.album5));
+        imageslist.add(new ImagesData("Lillie Watts", "3 hours ago", R.drawable.album6));
     }
 }
    class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
-       List<ImagesData> persons;
+       List<ImagesData> imageslist;
 
-       RVAdapter(List<ImagesData> persons){
-           this.persons = persons;
+       RVAdapter(List<ImagesData> imageslist){
+           this.imageslist = imageslist;
        }
        @Override
        public PersonViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -57,14 +57,14 @@ public class TabFragment1 extends Fragment {
 
        @Override
        public void onBindViewHolder(PersonViewHolder holder, int i) {
-           holder.personName.setText(persons.get(i).name);
-           holder.personAge.setText(persons.get(i).age);
-           holder.personPhoto.setImageResource(persons.get(i).photoId);
+           holder.personName.setText(imageslist.get(i).name);
+           holder.personAge.setText(imageslist.get(i).age);
+           holder.personPhoto.setImageResource(imageslist.get(i).photoId);
        }
 
        @Override
        public int getItemCount() {
-           return persons.size();
+           return imageslist.size();
        }
 
        public static class PersonViewHolder extends RecyclerView.ViewHolder {
